@@ -1,0 +1,237 @@
+---
+layout: base.njk
+title: "Karte"
+permalink: /karte/
+---
+
+<style>
+  .karte-tabs {
+    position: sticky;
+    top: 100px;
+    z-index: 50;
+    background: var(--white);
+    border-bottom: 1px solid rgba(167,195,195,0.35);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .karte-tab {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .karte-tab:hover { color: var(--black); }
+  .karte-tab.active { color: var(--black); border-bottom-color: var(--blue); }
+
+  /* SPEISEKARTE */
+  .speisen-section { background: var(--white); padding: 4rem 2rem 3rem; }
+
+  .menu-section { max-width: 820px; margin: 0 auto 3rem; }
+
+  .menu-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--black);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(167,195,195,0.35);
+    margin-bottom: 0.25rem;
+  }
+
+  .menu-item {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 0.5px solid rgba(167,195,195,0.25);
+  }
+
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item-name { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.2rem; }
+  .menu-item-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.5; }
+  .menu-item-price { font-family: 'Playfair Display', serif; font-size: 0.95rem; white-space: nowrap; flex-shrink: 0; padding-top: 0.15rem; }
+
+  .tapas-note {
+    max-width: 820px; margin: 0 auto 3rem;
+    background: rgba(167,195,195,0.1);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 4px; padding: 1.25rem 1.5rem;
+    font-size: 0.85rem; color: var(--muted); line-height: 1.65;
+  }
+
+  .menu-footnote {
+    max-width: 820px; margin: 0 auto;
+    font-size: 0.78rem; color: var(--muted);
+    border-top: 0.5px solid rgba(167,195,195,0.35);
+    padding-top: 1.5rem; line-height: 1.7;
+  }
+
+  /* WEINKARTE */
+  .wein-section { background: #152A2A; padding: 4rem 2rem 5rem; }
+
+  .wein-inner { max-width: 820px; margin: 0 auto; }
+
+  .wein-section .eyebrow { color: #C9A96E; }
+  .wein-section h2 { color: var(--cream); font-size: clamp(1.6rem, 3.5vw, 2.25rem); margin-bottom: 0.5rem; }
+  .wein-intro { font-size: 0.9rem; color: rgba(237,232,220,0.6); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .wein-cat { margin-bottom: 2.5rem; }
+
+  .wein-cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; color: #C9A96E;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid rgba(201,169,110,0.3);
+    margin-bottom: 0.5rem;
+  }
+
+  .wein-item {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 0.85rem 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .wein-item:last-child { border-bottom: none; }
+  .wein-item-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--cream); margin-bottom: 0.15rem; }
+  .wein-item-desc { font-size: 0.78rem; color: rgba(237,232,220,0.5); }
+  .wein-item-price { font-size: 0.85rem; color: rgba(237,232,220,0.7); white-space: nowrap; flex-shrink: 0; margin-left: 1rem; padding-top: 0.15rem; }
+
+  .wein-note {
+    font-size: 0.78rem; color: rgba(237,232,220,0.35);
+    border-top: 0.5px solid rgba(255,255,255,0.08); padding-top: 1.5rem; line-height: 1.7;
+    margin-top: 1rem;
+  }
+</style>
+
+<div class="page-hero">
+  <span class="eyebrow">Strandmuschel Rantum · Sylt</span>
+  <h1 class="section-title">Karte</h1>
+</div>
+
+<div class="karte-tabs">
+  <a href="#speisekarte" class="karte-tab active">Speisekarte</a>
+  <a href="#weinkarte" class="karte-tab">Weinkarte</a>
+</div>
+
+<!-- SPEISEKARTE -->
+<div id="speisekarte" class="speisen-section">
+  <div class="tapas-note">
+    <strong>Tapas ab 16:30 Uhr</strong> — Unsere hausgemachten Tapas sind täglich ab 16:30 Uhr erhältlich.
+  </div>
+
+  {% for section in menu.sections %}
+  <div class="menu-section">
+    <h2 class="menu-section-title">{{ section.name }}</h2>
+    {% for item in section.items %}
+    <div class="menu-item">
+      <div>
+        <h3 class="menu-item-name">{{ item.name }}</h3>
+        <p class="menu-item-desc">{{ item.description }}</p>
+        <div>
+          {% for tag in item.tags %}
+            {% if tag != 'featured' %}<span class="tag">{{ tag }}</span>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="menu-item-price">{{ item.price }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <p class="menu-footnote">
+    (v) vegetarisch &nbsp;·&nbsp; (vegan) vegan &nbsp;·&nbsp;
+    Bitte teilt unserem Team Allergien und Unverträglichkeiten mit. Alle Preise inkl. MwSt.
+  </p>
+</div>
+
+<!-- WEINKARTE -->
+<div id="weinkarte" class="wein-section">
+  <div class="wein-inner">
+    <span class="eyebrow">Weinkarte</span>
+    <h2>Über 100 handverlesene Positionen</h2>
+    <p class="wein-intro">Vom Riesling bis zu seltenen Jahrgängen — eine der spannendsten Weinauswahlen auf Sylt. Mit dem Hauswein „Muschelschluck" als entspanntem Einstieg.</p>
+
+    <div class="wein-cat">
+      <h3 class="wein-cat-title">Hauswein</h3>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Muschelschluck — Weißwein</div><div class="wein-item-desc">Leicht, frisch, perfekt zum Sonnenuntergang · 0,2l / 0,75l</div></div>
+        <div class="wein-item-price">6,50 € / 29,00 €</div>
+      </div>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Muschelschluck — Rosé</div><div class="wein-item-desc">Trocken, beerig, sommertauglich · 0,2l / 0,75l</div></div>
+        <div class="wein-item-price">6,50 € / 29,00 €</div>
+      </div>
+    </div>
+
+    <div class="wein-cat">
+      <h3 class="wein-cat-title">Weißwein — Deutschland</h3>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Riesling GG · Mosel</div><div class="wein-item-desc">Trocken, mineralisch, zitrusfrisch · 0,75l</div></div>
+        <div class="wein-item-price">ab 58,00 €</div>
+      </div>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Grauburgunder · Pfalz</div><div class="wein-item-desc">Vollmundig, würzig, mit feiner Frucht · 0,75l</div></div>
+        <div class="wein-item-price">ab 44,00 €</div>
+      </div>
+    </div>
+
+    <div class="wein-cat">
+      <h3 class="wein-cat-title">Rotwein — Spanien & Italien</h3>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Ribera del Duero Reserva</div><div class="wein-item-desc">Tempranillo, kräftig, mit Tiefe · 0,75l</div></div>
+        <div class="wein-item-price">ab 62,00 €</div>
+      </div>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Brunello di Montalcino</div><div class="wein-item-desc">Sangiovese Grosso, komplex, elegant · 0,75l</div></div>
+        <div class="wein-item-price">ab 95,00 €</div>
+      </div>
+    </div>
+
+    <div class="wein-cat">
+      <h3 class="wein-cat-title">Champagner & Schaumwein</h3>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Taittinger Brut Réserve</div><div class="wein-item-desc">Frisch, cremig, festlich · 0,75l</div></div>
+        <div class="wein-item-price">98,00 €</div>
+      </div>
+      <div class="wein-item">
+        <div><div class="wein-item-name">Sekt · Pfalz, brut</div><div class="wein-item-desc">Trocken, lebendig, regional · 0,1l / 0,75l</div></div>
+        <div class="wein-item-price">7,00 € / 38,00 €</div>
+      </div>
+    </div>
+
+    <p class="wein-note">Die vollständige Weinkarte liegt im Restaurant aus. Alle Preise inkl. MwSt.</p>
+  </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.karte-tab');
+  const sections = ['speisekarte', 'weinkarte'];
+
+  function setActiveTab() {
+    const scrollY = window.scrollY + 200;
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + current));
+  }
+
+  window.addEventListener('scroll', setActiveTab, { passive: true });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(tab.getAttribute('href').slice(1));
+      if (target) window.scrollTo({ top: target.offsetTop - 145, behavior: 'smooth' });
+    });
+  });
+</script>
