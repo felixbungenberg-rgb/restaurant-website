@@ -46,16 +46,19 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      width: 25%;
-      min-width: 160px;
-      padding: 0 2rem;
-      text-decoration: none;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
       flex-shrink: 0;
+      background: var(--white);
+      border-bottom-right-radius: 32px;
+      text-decoration: none;
     }
 
     .nav-logo-img {
-      height: 88px;
-      width: auto;
+      height: 80px;
+      width: 80px;
+      object-fit: contain;
       display: block;
     }
 
@@ -114,8 +117,9 @@
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--black); }
 
     @media (max-width: 768px) {
-      nav { align-items: center; justify-content: space-between; padding: 0 1.5rem; }
-      .nav-brand { width: auto; min-width: unset; padding: 0; }
+      nav { align-items: center; justify-content: space-between; padding: 0 0 0 1.5rem; }
+      .nav-brand { width: 80px; height: 80px; border-bottom-right-radius: 24px; }
+      .nav-logo-img { height: 64px; width: 64px; }
       .nav-toggle { display: flex; margin-right: 0; }
       .nav-links {
         display: none; flex-direction: column; align-items: stretch;
@@ -253,13 +257,10 @@
 </head>
 <body>
   <nav>
-    <a href="/" class="nav-brand">
-      <img class="nav-logo-img" src="{{ site.logo }}" alt="{{ site.name }}">
-    </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" onclick="this.nextElementSibling.classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="/ueber-uns/">Über uns</a></li>
       <li><a href="/karte/">Karte</a></li>
       <li><a href="/impressionen/">Impressionen</a></li>
@@ -267,6 +268,9 @@
       <li><a href="/events/">Events</a></li>
       <li class="nav-reservieren"><a href="/reservieren/">Reservieren</a></li>
     </ul>
+    <a href="/" class="nav-brand">
+      <img class="nav-logo-img" src="{{ site.logo }}" alt="{{ site.name }}">
+    </a>
   </nav>
 
   <main>
