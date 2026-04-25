@@ -1,0 +1,84 @@
+---
+layout: base.njk
+title: "Shop"
+---
+
+<style>
+  .shop-page { padding: 4rem 2.5rem 5rem; }
+
+  .shop-grid-full {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .shop-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+
+  .shop-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+
+  .shop-card-img {
+    width: 100%; height: 220px;
+    object-fit: cover;
+  }
+
+  .shop-card-img-placeholder {
+    width: 100%; height: 220px;
+    background: linear-gradient(135deg, #e8ddd0, #d4c4b0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: var(--muted);
+  }
+
+  .shop-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .shop-card-body h2 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .shop-card-body p { font-size: 0.875rem; color: var(--muted); flex: 1; margin-bottom: 1.25rem; line-height: 1.6; }
+
+  .shop-card-footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .shop-price { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--gold); }
+
+  .shop-note {
+    max-width: 1100px; margin: 3rem auto 0;
+    text-align: center;
+    font-size: 0.85rem; color: var(--muted);
+  }
+</style>
+
+<div class="page-hero">
+  <p class="section-label">Take Us Home</p>
+  <h1 class="section-title light">Our Shop</h1>
+</div>
+
+<div class="shop-page">
+  <div class="shop-grid-full">
+    {% for product in shop.products %}
+    <article class="shop-card">
+      {% if product.image %}
+        <img class="shop-card-img" src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+      {% else %}
+        <div class="shop-card-img-placeholder">🛒</div>
+      {% endif %}
+      <div class="shop-card-body">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <div class="shop-card-footer">
+          <span class="shop-price">{{ product.price }}</span>
+          <a href="{{ product.stripe_link }}" class="btn btn-gold" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="shop-note">Orders are processed securely via Stripe. Questions? Email us at <a href="mailto:{{ site.email }}" style="color:var(--gold)">{{ site.email }}</a>.</p>
+</div>

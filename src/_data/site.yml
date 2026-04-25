@@ -1,0 +1,31 @@
+name: "La Bella Cucina"
+tagline: "Authentic Italian, crafted with love since 1987"
+logo: "/images/logo.png"
+hero_image: "/images/hero.jpg"
+hero_cta_primary: "Reserve a Table"
+hero_cta_secondary: "View Menu"
+about_snippet: "Nestled in the heart of the city, La Bella Cucina has been serving authentic Italian dishes made from family recipes passed down through generations. Every dish tells a story."
+address: "42 Via Roma, London, EC1A 1BB"
+phone: "+44 20 7123 4567"
+email: "hello@labellacucina.co.uk"
+google_maps_embed: ""
+hours:
+  - day: "Monday – Thursday"
+    time: "12:00 – 22:00"
+  - day: "Friday – Saturday"
+    time: "12:00 – 23:00"
+  - day: "Sunday"
+    time: "13:00 – 21:00"
+social:
+  instagram: "https://instagram.com/labellacucina"
+  facebook: "https://facebook.com/labellacucina"
+  tripadvisor: ""
+reservation_system_embed: ""
+reservation_intro: "Reserve your table online. For large groups (8+) please call us directly."
+about_hero_image: "/images/about-hero.jpg"
+about_body: |
+  La Bella Cucina was founded in 1987 by the Romani family, who emigrated from Naples with a suitcase full of recipes and a dream of sharing Italian hospitality with London.
+
+  Today, the third generation of the family continues the tradition. Our pasta is made fresh each morning, our sauces are slow-cooked for hours, and our bread is baked on-site daily.
+
+  We believe a great meal is more than food — it's warmth, conversation, and the feeling of being at home.

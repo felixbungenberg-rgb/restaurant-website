@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ site.tagline }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #faf7f2;
+      --warm:    #f5ede0;
+      --gold:    #b8860b;
+      --gold-lt: #d4a820;
+      --dark:    #1c1713;
+      --mid:     #4a3f35;
+      --muted:   #7a6e65;
+      --border:  #e8ddd0;
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 68px;
+      background: rgba(28,23,19,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184,134,11,0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--gold-lt);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #d6c9bb;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-lt); }
+
+    /* Hamburger (mobile) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: #d6c9bb; border-radius: 2px; transition: 0.3s;
+    }
+
+    @media (max-width: 700px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: rgba(28,23,19,0.98);
+        border-bottom: 1px solid rgba(184,134,11,0.25);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-top: 1px solid rgba(255,255,255,0.06); }
+      .nav-links a { display: block; padding: 1rem 2.5rem; }
+    }
+
+    /* ── PAGE SHELL ── */
+    main { padding-top: 68px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: #b0a090;
+      padding: 3rem 2.5rem 2rem;
+      font-size: 0.875rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold-lt);
+      margin-bottom: 0.4rem;
+    }
+
+    footer h4 { color: #d6c9bb; margin-bottom: 0.75rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    footer p, footer address { font-style: normal; line-height: 1.7; }
+    footer a { color: #b0a090; text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold-lt); }
+
+    .footer-social { display: flex; gap: 1rem; margin-top: 0.75rem; }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      font-size: 0.78rem;
+      color: #6b5f55;
+    }
+
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ── SHARED UTILITIES ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-title.light { color: var(--cream); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
+
+    .btn-outline { background: transparent; color: var(--cream); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+    .btn-outline-dark { background: transparent; color: var(--dark); border-color: var(--dark); }
+    .btn-outline-dark:hover { background: var(--dark); color: var(--cream); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      background: var(--warm);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .page-hero {
+      padding: 5rem 2.5rem 3.5rem;
+      background: var(--dark);
+      text-align: center;
+    }
+
+    .page-hero .section-label { color: var(--gold-lt); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .stars { color: var(--gold); letter-spacing: 2px; }
+  </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">{{ site.name }}</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/#menu-preview">Menu</a></li>
+      <li><a href="/menu/">Full Menu</a></li>
+      <li><a href="/reservations/">Reservations</a></li>
+      <li><a href="/reviews/">Reviews</a></li>
+      <li><a href="/shop/">Shop</a></li>
+      <li><a href="/about/">Our Story</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="brand-name">{{ site.name }}</p>
+        <p>{{ site.tagline }}</p>
+        <div class="footer-social">
+          {% if site.social.instagram %}<a href="{{ site.social.instagram }}" target="_blank">Instagram</a>{% endif %}
+          {% if site.social.facebook %}<a href="{{ site.social.facebook }}" target="_blank">Facebook</a>{% endif %}
+          {% if site.social.tripadvisor %}<a href="{{ site.social.tripadvisor }}" target="_blank">TripAdvisor</a>{% endif %}
+        </div>
+      </div>
+      <div>
+        <h4>Opening Hours</h4>
+        {% for h in site.hours %}
+        <p>{{ h.day }}<br><strong style="color:#d6c9bb">{{ h.time }}</strong></p>
+        {% endfor %}
+      </div>
+      <div>
+        <h4>Find Us</h4>
+        <address>{{ site.address }}</address>
+        <p style="margin-top:0.5rem"><a href="tel:{{ site.phone }}">{{ site.phone }}</a></p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; {{ currentYear }} {{ site.name }}. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

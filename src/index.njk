@@ -1,0 +1,334 @@
+---
+layout: base.njk
+title: ""
+---
+
+<style>
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 68px);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: var(--dark);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('{{ site.hero_image }}');
+    background-size: cover; background-position: center;
+    opacity: 0.35;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 700px; padding: 2rem;
+  }
+
+  .hero-content .section-label { color: var(--gold-lt); margin-bottom: 1.2rem; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: #c8b9a8;
+    margin-bottom: 2.2rem;
+    font-weight: 300;
+  }
+
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ── ABOUT SNIPPET ── */
+  .about-strip {
+    background: var(--warm);
+    padding: 4.5rem 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-strip p {
+    max-width: 640px; margin: 0 auto 1.5rem;
+    font-size: 1.05rem; color: var(--mid);
+  }
+
+  /* ── SECTION COMMON ── */
+  .home-section {
+    padding: 5rem 2.5rem;
+  }
+
+  .home-section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* ── FEATURED MENU ── */
+  .menu-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .menu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .menu-card-img {
+    width: 100%; height: 180px;
+    object-fit: cover;
+    background: var(--warm);
+    display: block;
+  }
+
+  .menu-card-img-placeholder {
+    width: 100%; height: 180px;
+    background: linear-gradient(135deg, #e8ddd0, #d4c4b0);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 2rem;
+  }
+
+  .menu-card-body { padding: 1.25rem; }
+  .menu-card-body h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+  .menu-card-body p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .menu-card-price { font-weight: 500; color: var(--gold); }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--dark); }
+
+  .reviews-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+
+  .review-card p { color: #c8b9a8; font-size: 0.95rem; margin: 0.75rem 0; line-height: 1.7; }
+  .review-meta { font-size: 0.78rem; color: #7a6e65; }
+
+  /* ── SHOP TEASER ── */
+  .shop-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .shop-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+
+  .shop-card-img {
+    width: 100%; height: 200px;
+    object-fit: cover;
+    background: var(--warm);
+  }
+
+  .shop-card-img-placeholder {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, #e8ddd0, #d4c4b0);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 2.5rem;
+  }
+
+  .shop-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+  .shop-card-body h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .shop-card-body p { font-size: 0.875rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .shop-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .shop-price { font-weight: 500; color: var(--gold); }
+
+  /* ── FIND US ── */
+  .findus-section { background: var(--warm); border-top: 1px solid var(--border); }
+
+  .findus-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+  }
+
+  .findus-details h2 { margin-bottom: 1.5rem; }
+
+  .findus-row { margin-bottom: 1.25rem; }
+  .findus-row strong { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+
+  .map-placeholder {
+    background: #d9d0c5;
+    border-radius: 8px;
+    height: 320px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 0.875rem;
+    overflow: hidden;
+  }
+
+  .map-placeholder iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; }
+
+  @media (max-width: 700px) {
+    .findus-inner { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="section-label">Welcome to</p>
+    <h1 class="hero-title">{{ site.name }}</h1>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+    <div class="hero-ctas">
+      <a href="/reservations/" class="btn btn-gold">{{ site.hero_cta_primary }}</a>
+      <a href="/menu/" class="btn btn-outline">{{ site.hero_cta_secondary }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SNIPPET -->
+<section class="about-strip">
+  <p>{{ site.about_snippet }}</p>
+  <a href="/about/" class="btn btn-outline-dark">Our Story</a>
+</section>
+
+<!-- FEATURED MENU -->
+<section class="home-section" id="menu-preview">
+  <div class="home-section-header">
+    <p class="section-label">From the Kitchen</p>
+    <h2 class="section-title">A Taste of Our Menu</h2>
+  </div>
+  <div class="menu-grid">
+    {% for section in menu.sections %}
+      {% for item in section.items %}
+        {% if 'featured' in item.tags %}
+        <article class="menu-card">
+          {% if item.image %}
+            <img class="menu-card-img" src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
+          {% else %}
+            <div class="menu-card-img-placeholder">🍽</div>
+          {% endif %}
+          <div class="menu-card-body">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <div>
+              <span class="menu-card-price">{{ item.price }}</span>
+              {% for tag in item.tags %}
+                {% if tag != 'featured' %}<span class="tag">{{ tag }}</span>{% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="/menu/" class="btn btn-outline-dark">View Full Menu</a>
+  </div>
+</section>
+
+<!-- REVIEWS SNIPPET -->
+<section class="home-section reviews-section">
+  <div class="home-section-header">
+    <p class="section-label" style="color:var(--gold-lt)">What Guests Say</p>
+    <h2 class="section-title light">Loved by Our Guests</h2>
+  </div>
+  <div class="reviews-grid">
+    {% for review in reviews.reviews %}
+      {% if review.featured %}
+      <article class="review-card">
+        <div class="stars">
+          {% for i in range(review.rating) %}★{% endfor %}
+        </div>
+        <p>"{{ review.text }}"</p>
+        <p class="review-meta">{{ review.author }} · {{ review.source }} · {{ review.date }}</p>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="/reviews/" class="btn btn-outline">Read All Reviews</a>
+  </div>
+</section>
+
+<!-- SHOP TEASER -->
+<section class="home-section">
+  <div class="home-section-header">
+    <p class="section-label">Take Us Home</p>
+    <h2 class="section-title">From Our Shop</h2>
+  </div>
+  <div class="shop-grid">
+    {% for product in shop.products %}
+      {% if product.featured %}
+      <article class="shop-card">
+        {% if product.image %}
+          <img class="shop-card-img" src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+        {% else %}
+          <div class="shop-card-img-placeholder">🛒</div>
+        {% endif %}
+        <div class="shop-card-body">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <div class="shop-card-footer">
+            <span class="shop-price">{{ product.price }}</span>
+            <a href="{{ product.stripe_link }}" class="btn btn-gold" target="_blank" rel="noopener">Buy</a>
+          </div>
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="/shop/" class="btn btn-outline-dark">Visit the Shop</a>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="home-section findus-section">
+  <div class="findus-inner">
+    <div class="findus-details">
+      <p class="section-label">Come & See Us</p>
+      <h2 class="section-title">Find Us</h2>
+      <div class="findus-row">
+        <strong>Address</strong>
+        <p>{{ site.address }}</p>
+      </div>
+      <div class="findus-row">
+        <strong>Phone</strong>
+        <p><a href="tel:{{ site.phone }}" style="color:var(--dark)">{{ site.phone }}</a></p>
+      </div>
+      <div class="findus-row">
+        <strong>Opening Hours</strong>
+        {% for h in site.hours %}
+          <p>{{ h.day }}: {{ h.time }}</p>
+        {% endfor %}
+      </div>
+      <a href="/reservations/" class="btn btn-gold" style="margin-top:1rem">Reserve a Table</a>
+    </div>
+    <div>
+      <div class="map-placeholder">
+        {% if site.google_maps_embed %}
+          {{ site.google_maps_embed | safe }}
+        {% else %}
+          <span>Map will appear here once configured in the CMS</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

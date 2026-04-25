@@ -1,0 +1,86 @@
+---
+layout: base.njk
+title: "Menu"
+---
+
+<style>
+  .menu-page { padding: 4rem 2.5rem 5rem; }
+
+  .menu-section { max-width: 900px; margin: 0 auto 3.5rem; }
+
+  .menu-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--dark);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .menu-item:last-child { border-bottom: none; }
+
+  .menu-item-info { flex: 1; }
+
+  .menu-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .menu-item-desc { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.4rem; }
+
+  .menu-item-price {
+    font-weight: 500;
+    color: var(--gold);
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  .dietary-note {
+    max-width: 900px; margin: 0 auto;
+    font-size: 0.8rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+</style>
+
+<div class="page-hero">
+  <p class="section-label">La Bella Cucina</p>
+  <h1 class="section-title light">Our Menu</h1>
+</div>
+
+<div class="menu-page">
+  {% for section in menu.sections %}
+  <div class="menu-section">
+    <h2 class="menu-section-title">{{ section.name }}</h2>
+    {% for item in section.items %}
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3 class="menu-item-name">{{ item.name }}</h3>
+        <p class="menu-item-desc">{{ item.description }}</p>
+        <div>
+          {% for tag in item.tags %}
+            {% if tag != 'featured' %}<span class="tag">{{ tag }}</span>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="menu-item-price">{{ item.price }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <p class="dietary-note">
+    (v) vegetarian &nbsp;·&nbsp; (vg) vegan &nbsp;·&nbsp; (gf) gluten-free &nbsp;·&nbsp;
+    Please inform your server of any allergies. Menu items are subject to seasonal change.
+  </p>
+</div>

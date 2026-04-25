@@ -1,0 +1,31 @@
+reviews:
+  - author: "Sophie T."
+    rating: 5
+    text: "Honestly the best Italian food I've had outside of Italy. The tagliatelle ragù is something else — rich, slow-cooked, and clearly made with care. We'll be back every time we're in London."
+    date: "March 2026"
+    source: "Google"
+    featured: true
+  - author: "Marco D."
+    rating: 5
+    text: "Impeccable service and incredible food. The burrata was perfectly creamy and the ribeye melted in your mouth. The atmosphere felt genuinely warm and family-run, not manufactured."
+    date: "February 2026"
+    source: "TripAdvisor"
+    featured: true
+  - author: "Priya K."
+    rating: 5
+    text: "Came here for a birthday dinner and they made it so special. The panna cotta is divine. Already planning our next visit."
+    date: "January 2026"
+    source: "Google"
+    featured: true
+  - author: "James R."
+    rating: 4
+    text: "Excellent pasta and great wine list. Service was a little slow on a busy Friday night but the food more than made up for it. Will definitely return."
+    date: "December 2025"
+    source: "Google"
+    featured: false
+  - author: "Amelia W."
+    rating: 5
+    text: "The calamari fritti were perfectly crisp without being greasy, and the risotto was just as good as my nonna used to make. A genuine gem."
+    date: "November 2025"
+    source: "TripAdvisor"
+    featured: false
