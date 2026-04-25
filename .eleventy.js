@@ -1,5 +1,8 @@
+const yaml = require("js-yaml");
+
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("public");
+  eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
+  eleventyConfig.addPassthroughCopy({ "public": "/" });
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addGlobalData("currentYear", new Date().getFullYear());
 
