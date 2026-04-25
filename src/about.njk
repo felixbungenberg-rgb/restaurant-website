@@ -76,6 +76,56 @@ permalink: /ueber-uns/
 
   @media (max-width: 768px) { .gallery-masonry { columns: 2; } }
   @media (max-width: 480px) { .gallery-masonry { columns: 1; } }
+
+  .reviews-section { padding: 4rem 2rem 5rem; background: var(--cream); }
+
+  .google-banner {
+    max-width: 820px; margin: 0 auto 3rem;
+    background: rgba(167,195,195,0.1);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 4px; padding: 1.5rem 2rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+
+  .gb-score { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--black); flex-shrink: 0; }
+  .gb-stars { color: #C9A96E; font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.2rem; }
+  .gb-label { font-size: 0.8rem; color: var(--muted); }
+
+  .reviews-list {
+    max-width: 820px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+
+  .review-full {
+    background: var(--white);
+    border: 0.5px solid rgba(167,195,195,0.35);
+    border-radius: 4px; padding: 2rem;
+  }
+
+  .review-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem;
+  }
+
+  .review-author-name { font-family: 'Playfair Display', serif; font-size: 1rem; }
+
+  .review-platform-badge {
+    font-size: 0.65rem; font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); background: var(--white);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 20px; padding: 0.2rem 0.6rem;
+  }
+
+  .review-stars { color: #C9A96E; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.65rem; }
+
+  .review-body {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem; font-style: italic;
+    color: var(--black); line-height: 1.7; margin-bottom: 0.5rem;
+  }
+
+  .review-date { font-size: 0.75rem; color: var(--muted); }
 </style>
 
 <img class="about-hero-img" src="{{ site.about_hero_image }}" alt="Strandmuschel Rantum · Sylt">
@@ -150,5 +200,32 @@ permalink: /ueber-uns/
     <div class="gallery-item"><img src="/images/IMG_5236.jpeg" alt="Strandmuschel" loading="lazy"></div>
     <div class="gallery-item"><img src="/images/galerie3.webp" alt="Strandmuschel" loading="lazy"></div>
     <div class="gallery-item"><img src="/images/IMG_6813.jpeg" alt="Strandmuschel" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="reviews-section">
+  <div class="container" style="margin-bottom:2rem">
+    <span class="eyebrow">Gästestimmen</span>
+    <h2 class="section-title">Was andere sagen</h2>
+  </div>
+  <div class="google-banner">
+    <div class="gb-score">{{ reviews.google_score }}</div>
+    <div>
+      <div class="gb-stars">★★★★★</div>
+      <div class="gb-label">{{ reviews.google_count }} Google-Bewertungen</div>
+    </div>
+  </div>
+  <div class="reviews-list">
+    {% for review in reviews.reviews %}
+    <article class="review-full">
+      <div class="review-header">
+        <span class="review-author-name">{{ review.author }}</span>
+        <span class="review-platform-badge">{{ review.source }}</span>
+      </div>
+      <div class="review-stars">{% for i in range(review.rating) %}★{% endfor %}</div>
+      <p class="review-body">„{{ review.text }}"</p>
+      <p class="review-date">{{ review.date }}</p>
+    </article>
+    {% endfor %}
   </div>
 </div>
