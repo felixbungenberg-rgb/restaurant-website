@@ -51,6 +51,31 @@ permalink: /ueber-uns/
 
   .fact-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
   .fact-value { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--black); }
+
+  .gallery-section { padding: 4rem 2rem 5rem; background: var(--white); }
+
+  .gallery-masonry {
+    max-width: 1100px; margin: 0 auto;
+    columns: 3; column-gap: 0.75rem;
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 0.75rem;
+    border-radius: 4px; overflow: hidden;
+    background: rgba(167,195,195,0.1);
+  }
+
+  .gallery-item img {
+    width: 100%; display: block;
+    image-orientation: from-image;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.02); }
+
+  @media (max-width: 768px) { .gallery-masonry { columns: 2; } }
+  @media (max-width: 480px) { .gallery-masonry { columns: 1; } }
 </style>
 
 <img class="about-hero-img" src="{{ site.about_hero_image }}" alt="Strandmuschel Rantum · Sylt">
@@ -89,5 +114,41 @@ permalink: /ueber-uns/
     </div>
 
     <a href="/reservieren/" class="btn btn-blue">Tisch reservieren</a>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="container" style="margin-bottom:2rem">
+    <span class="eyebrow">Impressionen</span>
+    <h2 class="section-title">Bilder aus der Strandmuschel</h2>
+  </div>
+  <div class="gallery-masonry">
+    <div class="gallery-item"><img src="/images/hero.jpg" alt="Sonnenuntergang Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_2188.jpeg" alt="Strandkörbe am Abend" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/terrasse.webp" alt="Terrasse" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5227.jpeg" alt="Strandmuschel Sonnenuntergang" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/drinks.webp" alt="Drinks auf der Düne" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5233.jpeg" alt="Terrasse am Abend" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/tapas.webp" alt="Tapas & Bar" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_6811.jpeg" alt="Sonnenuntergang am Strand" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/bar.webp" alt="Bar" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_6820.jpeg" alt="Terrasse im Abendlicht" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5126.jpeg" alt="Sonnenuntergang" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/about.webp" alt="Strandmuschel Außenansicht" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5224.jpeg" alt="Blick auf den Weststrand" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/strand.webp" alt="Weststrand Rantum" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_6772.jpeg" alt="Düne mit Fahne" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/duene.webp" alt="Dünenlandschaft" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5228.jpeg" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/sylt.webp" alt="Sylt Landschaft" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5230.jpeg" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/fahne.webp" alt="Strandmuschel Fahne" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5234.jpeg" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/galerie1.webp" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5235.jpeg" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/galerie2.webp" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_5236.jpeg" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/galerie3.webp" alt="Strandmuschel" loading="lazy"></div>
+    <div class="gallery-item"><img src="/images/IMG_6813.jpeg" alt="Strandmuschel" loading="lazy"></div>
   </div>
 </div>
