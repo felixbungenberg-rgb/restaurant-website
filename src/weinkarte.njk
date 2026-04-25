@@ -1,0 +1,163 @@
+---
+layout: base.njk
+title: "Weinkarte"
+permalink: /weinkarte/
+---
+
+<style>
+  .wine-page { background: #152A2A; min-height: 60vh; padding: 4rem 2rem 5rem; }
+
+  .wine-intro {
+    max-width: 820px; margin: 0 auto 3.5rem;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;
+  }
+
+  .wine-intro-text .eyebrow { color: #C9A96E; }
+  .wine-intro-text h1 { color: var(--cream); font-size: clamp(1.6rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+  .wine-intro-text p { font-size: 0.9rem; color: rgba(237,232,220,0.65); line-height: 1.8; }
+
+  .wine-img-block { aspect-ratio: 3/2; border-radius: 4px; overflow: hidden; }
+  .wine-img-block img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+
+  .wine-categories { max-width: 820px; margin: 0 auto; }
+
+  .wine-cat { margin-bottom: 2.5rem; }
+
+  .wine-cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: #C9A96E;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid rgba(201,169,110,0.3);
+    margin-bottom: 0.5rem;
+  }
+
+  .wine-item {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 0.85rem 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .wine-item:last-child { border-bottom: none; }
+
+  .wine-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; color: var(--cream); margin-bottom: 0.15rem;
+  }
+
+  .wine-item-desc { font-size: 0.78rem; color: rgba(237,232,220,0.5); }
+
+  .wine-item-price {
+    font-size: 0.85rem; color: rgba(237,232,220,0.7);
+    white-space: nowrap; flex-shrink: 0; padding-top: 0.15rem; margin-left: 1rem;
+  }
+
+  .wine-note {
+    max-width: 820px; margin: 2rem auto 0;
+    font-size: 0.78rem; color: rgba(237,232,220,0.4);
+    border-top: 0.5px solid rgba(255,255,255,0.08); padding-top: 1.5rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .wine-intro { grid-template-columns: 1fr; }
+    .wine-img-block { order: -1; }
+  }
+</style>
+
+<div style="background:#152A2A;padding:5rem 2rem 3rem;text-align:center;border-bottom:0.5px solid rgba(255,255,255,0.08)">
+  <span class="eyebrow" style="color:#C9A96E">Strandmuschel Rantum</span>
+  <h1 style="font-family:'Playfair Display',serif;color:var(--cream);font-size:clamp(1.75rem,4vw,2.75rem)">Weinkarte</h1>
+  <p style="font-size:0.9rem;color:rgba(237,232,220,0.55);margin-top:0.5rem">Über 100 handverlesene Positionen.</p>
+</div>
+
+<div class="wine-page">
+  <div class="wine-intro">
+    <div class="wine-intro-text">
+      <span class="eyebrow">Unsere Philosophie</span>
+      <h1>Wein mit Charakter</h1>
+      <p>Von deutschen Spitzenlagen über iberische Entdeckungen bis hin zu klassischen Toskanern — unsere Karte überrascht. Einstieg gefällig? Probiert unseren Hauswein „Muschelschluck".</p>
+    </div>
+    <div class="wine-img-block">
+      <img src="/images/drinks.webp" alt="Drinks an der Strandmuschel" loading="lazy">
+    </div>
+  </div>
+
+  <div class="wine-categories">
+    <div class="wine-cat">
+      <h2 class="wine-cat-title">Hauswein</h2>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Muschelschluck — Weißwein</div>
+          <div class="wine-item-desc">Leicht, frisch, perfekt zum Sonnenuntergang · 0,2l / 0,75l</div>
+        </div>
+        <div class="wine-item-price">6,50 € / 29,00 €</div>
+      </div>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Muschelschluck — Rosé</div>
+          <div class="wine-item-desc">Trocken, beerig, sommertauglich · 0,2l / 0,75l</div>
+        </div>
+        <div class="wine-item-price">6,50 € / 29,00 €</div>
+      </div>
+    </div>
+
+    <div class="wine-cat">
+      <h2 class="wine-cat-title">Weißwein — Deutschland</h2>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Riesling GG · Mosel</div>
+          <div class="wine-item-desc">Trocken, mineralisch, zitrusfrisch · 0,75l</div>
+        </div>
+        <div class="wine-item-price">ab 58,00 €</div>
+      </div>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Grauburgunder · Pfalz</div>
+          <div class="wine-item-desc">Vollmundig, würzig, mit feiner Frucht · 0,75l</div>
+        </div>
+        <div class="wine-item-price">ab 44,00 €</div>
+      </div>
+    </div>
+
+    <div class="wine-cat">
+      <h2 class="wine-cat-title">Rotwein — Spanien & Italien</h2>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Ribera del Duero Reserva</div>
+          <div class="wine-item-desc">Tempranillo, kräftig, mit Tiefe · 0,75l</div>
+        </div>
+        <div class="wine-item-price">ab 62,00 €</div>
+      </div>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Brunello di Montalcino</div>
+          <div class="wine-item-desc">Sangiovese Grosso, komplex, elegant · 0,75l</div>
+        </div>
+        <div class="wine-item-price">ab 95,00 €</div>
+      </div>
+    </div>
+
+    <div class="wine-cat">
+      <h2 class="wine-cat-title">Champagner & Schaumwein</h2>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Taittinger Brut Réserve</div>
+          <div class="wine-item-desc">Frisch, cremig, festlich · 0,75l</div>
+        </div>
+        <div class="wine-item-price">98,00 €</div>
+      </div>
+      <div class="wine-item">
+        <div>
+          <div class="wine-item-name">Sekt · Pfalz, brut</div>
+          <div class="wine-item-desc">Trocken, lebendig, regional · 0,1l / 0,75l</div>
+        </div>
+        <div class="wine-item-price">7,00 € / 38,00 €</div>
+      </div>
+    </div>
+
+    <p class="wine-note">
+      Die vollständige Weinkarte mit allen Positionen liegt im Restaurant aus. Alle Preise inkl. MwSt.
+      Habt ihr Fragen zur Weinkarte? Unser Team berät euch gerne.
+    </p>
+  </div>
+</div>

@@ -1,67 +1,84 @@
 ---
 layout: base.njk
-title: "Reviews"
+title: "Bewertungen"
+permalink: /bewertungen/
 ---
 
 <style>
-  .reviews-page { padding: 4rem 2.5rem 5rem; }
+  .reviews-page { padding: 4rem 2rem 5rem; background: var(--white); }
+
+  .google-banner {
+    max-width: 820px; margin: 0 auto 3rem;
+    background: rgba(167,195,195,0.1);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 4px; padding: 1.5rem 2rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+
+  .gb-score { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--black); flex-shrink: 0; }
+  .gb-stars { color: #C9A96E; font-size: 1rem; letter-spacing: 2px; margin-bottom: 0.2rem; }
+  .gb-label { font-size: 0.8rem; color: var(--muted); }
 
   .reviews-list {
-    max-width: 800px; margin: 0 auto;
-    display: flex; flex-direction: column; gap: 1.5rem;
+    max-width: 820px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 1.25rem;
   }
 
   .review-full {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2rem;
+    background: var(--cream);
+    border: 0.5px solid rgba(167,195,195,0.35);
+    border-radius: 4px; padding: 2rem;
   }
 
   .review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem;
   }
 
-  .review-author { font-family: 'Playfair Display', serif; font-size: 1.05rem; }
+  .review-author-name { font-family: 'Playfair Display', serif; font-size: 1rem; }
 
-  .review-source {
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: var(--warm);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 0.2rem 0.6rem;
+  .review-platform-badge {
+    font-size: 0.65rem; font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); background: var(--white);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 20px; padding: 0.2rem 0.6rem;
   }
 
-  .review-text { color: var(--mid); line-height: 1.75; margin-bottom: 0.75rem; }
+  .review-stars { color: #C9A96E; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.65rem; }
 
-  .review-date { font-size: 0.8rem; color: var(--muted); }
+  .review-body {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem; font-style: italic;
+    color: var(--black); line-height: 1.7; margin-bottom: 0.5rem;
+  }
+
+  .review-date { font-size: 0.75rem; color: var(--muted); }
 </style>
 
 <div class="page-hero">
-  <p class="section-label">Guest Experiences</p>
-  <h1 class="section-title light">Reviews</h1>
+  <span class="eyebrow">Gästestimmen</span>
+  <h1 class="section-title">Was andere sagen</h1>
 </div>
 
 <div class="reviews-page">
+  <div class="google-banner">
+    <div class="gb-score">{{ reviews.google_score }}</div>
+    <div>
+      <div class="gb-stars">★★★★★</div>
+      <div class="gb-label">{{ reviews.google_count }} Google-Bewertungen</div>
+    </div>
+  </div>
+
   <div class="reviews-list">
     {% for review in reviews.reviews %}
     <article class="review-full">
       <div class="review-header">
-        <span class="review-author">{{ review.author }}</span>
-        <span class="review-source">{{ review.source }}</span>
+        <span class="review-author-name">{{ review.author }}</span>
+        <span class="review-platform-badge">{{ review.source }}</span>
       </div>
-      <div class="stars">
-        {% for i in range(review.rating) %}★{% endfor %}
-      </div>
-      <p class="review-text" style="margin-top:0.6rem">"{{ review.text }}"</p>
+      <div class="review-stars">{% for i in range(review.rating) %}★{% endfor %}</div>
+      <p class="review-body">„{{ review.text }}"</p>
       <p class="review-date">{{ review.date }}</p>
     </article>
     {% endfor %}

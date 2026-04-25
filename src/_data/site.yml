@@ -1,31 +1,41 @@
-name: "La Bella Cucina"
-tagline: "Authentic Italian, crafted with love since 1987"
+name: "Strandmuschel"
+tagline: "Rantum · Sylt · Direkt am Weststrand"
 logo: "/images/logo.png"
 hero_image: "/images/hero.jpg"
-hero_cta_primary: "Reserve a Table"
-hero_cta_secondary: "View Menu"
-about_snippet: "Nestled in the heart of the city, La Bella Cucina has been serving authentic Italian dishes made from family recipes passed down through generations. Every dish tells a story."
-address: "42 Via Roma, London, EC1A 1BB"
-phone: "+44 20 7123 4567"
-email: "hello@labellacucina.co.uk"
+hero_headline: "Wo der Strand aufhört und der Abend anfängt"
+hero_sub: "Regionale Küche mit Surferspirit, über 100 Weine und der schönste Sonnenuntergang der Insel — direkt auf der Düne."
+hero_cta_primary: "Tisch reservieren"
+hero_cta_secondary: "Speisekarte ansehen"
+hero_badges:
+  - "Tapas ab 16:30 Uhr"
+  - "Strandkorb-Terrasse"
+  - "Hunde willkommen"
+  - "Di – So ab 12:00 Uhr"
+about_snippet: "Sven Rurup, gebürtiger Sylter und leidenschaftlicher Surfer, hat sich mit der Strandmuschel seinen Traum erfüllt. Ein legerer Ort auf der Düne — mit regionalen Zutaten, mediterranen Einflüssen und einer Weinkarte, die jeden überrascht."
+about_quote: "Ich wollte einen Ort schaffen, wo man barfuß ankommen und trotzdem großartig essen kann."
+about_quote_author: "Sven Rurup, Inhaber"
+address: "Strandweg 30, 25980 Rantum"
+phone: "04651 / 27 175"
+email: "info@strandmuschel-sylt.de"
 google_maps_embed: ""
+google_score: "4,7"
+google_count: "737"
 hours:
-  - day: "Monday – Thursday"
-    time: "12:00 – 22:00"
-  - day: "Friday – Saturday"
-    time: "12:00 – 23:00"
-  - day: "Sunday"
-    time: "13:00 – 21:00"
-social:
-  instagram: "https://instagram.com/labellacucina"
-  facebook: "https://facebook.com/labellacucina"
-  tripadvisor: ""
+  - day: "Dienstag – Sonntag"
+    time: "ab 12:00 Uhr"
+  - day: "Montag"
+    time: "Ruhetag"
+hours_note: "April – Oktober"
 reservation_system_embed: ""
-reservation_intro: "Reserve your table online. For large groups (8+) please call us directly."
-about_hero_image: "/images/about-hero.jpg"
+reservation_intro: "Tisch sichern — online oder per Telefon. Für spontane Besuche: 20 Minuten vorher anrufen. Für Gruppen ab 10 Personen bitten wir um Kontaktaufnahme per Telefon."
+about_hero_image: "/images/sylt.webp"
 about_body: |
-  La Bella Cucina was founded in 1987 by the Romani family, who emigrated from Naples with a suitcase full of recipes and a dream of sharing Italian hospitality with London.
+  Sven Rurup, gebürtiger Sylter und leidenschaftlicher Surfer, hat sich mit der Strandmuschel seinen Traum erfüllt: ein Ort auf der Düne, wo man barfuß ankommt und trotzdem großartig isst.
 
-  Today, the third generation of the family continues the tradition. Our pasta is made fresh each morning, our sauces are slow-cooked for hours, and our bread is baked on-site daily.
+  Regionale Zutaten treffen auf mediterrane Einflüsse — frischer Fisch aus der Nordsee, hausgemachte Tapas, handverlesene Weine. Kein Dresscode, kein Schnickschnack.
 
-  We believe a great meal is more than food — it's warmth, conversation, and the feeling of being at home.
+  Kinder, Hunde und Surfboards sind herzlich willkommen. Die Strandmuschel ist zu Fuß oder per Fahrrad erreichbar — der Parkplatz am Strandweg liegt rund 500 Meter entfernt.
+social:
+  instagram: "https://instagram.com/strandmuschel_rantum"
+  facebook: ""
+  tripadvisor: ""

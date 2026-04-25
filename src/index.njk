@@ -7,183 +7,476 @@ title: ""
   /* ── HERO ── */
   .hero {
     position: relative;
-    min-height: calc(100vh - 68px);
+    min-height: calc(100vh - 64px);
     display: flex; align-items: center; justify-content: center;
     text-align: center;
-    background: var(--dark);
     overflow: hidden;
+    background: #0d1f1f;
   }
 
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('{{ site.hero_image }}');
-    background-size: cover; background-position: center;
-    opacity: 0.35;
+    background-size: cover; background-position: center 30%;
+    opacity: 0.55;
   }
 
   .hero-content {
     position: relative; z-index: 1;
-    max-width: 700px; padding: 2rem;
+    max-width: 680px; padding: 2rem;
   }
 
-  .hero-content .section-label { color: var(--gold-lt); margin-bottom: 1.2rem; }
+  .hero-eyebrow {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.25rem;
+  }
 
-  .hero-title {
+  .hero-h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 1.2rem;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
   }
 
-  .hero-tagline {
-    font-size: 1.05rem;
-    color: #c8b9a8;
-    margin-bottom: 2.2rem;
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 2rem;
     font-weight: 300;
   }
 
-  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .hero-ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
-  /* ── ABOUT SNIPPET ── */
-  .about-strip {
-    background: var(--warm);
-    padding: 4.5rem 2.5rem;
+  .hero-badges {
+    display: flex; gap: 0.5rem; justify-content: center;
+    flex-wrap: wrap; margin-top: 2rem;
+  }
+
+  .hero-badge {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.1);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── QUOTE STRIP ── */
+  .quote-strip {
+    background: var(--cream);
+    padding: 4rem 2rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(167,195,195,0.25);
   }
 
-  .about-strip p {
-    max-width: 640px; margin: 0 auto 1.5rem;
-    font-size: 1.05rem; color: var(--mid);
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    font-style: italic;
+    color: var(--black);
+    max-width: 620px;
+    margin: 0 auto 0.75rem;
+    line-height: 1.7;
   }
 
-  /* ── SECTION COMMON ── */
-  .home-section {
-    padding: 5rem 2.5rem;
+  .quote-source {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  .home-section-header {
+  /* ── ÜBER UNS ── */
+  .about-s {
+    background: var(--white);
+    padding: 5rem 2rem;
+  }
+
+  .about-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 4rem; align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  .about-img {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .about-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .about-text { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .about-quote {
+    border-left: 2px solid var(--blue);
+    padding-left: 1.25rem;
+  }
+
+  .about-quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-quote-author {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .about-body-text {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .pills { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+
+  .pill {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.72rem;
+    color: var(--black);
+    background: var(--cream);
+    border: 0.5px solid rgba(167,195,195,0.5);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* ── USP PILLARS ── */
+  .pillars-s {
+    background: var(--blue);
+    padding: 4.5rem 2rem;
+  }
+
+  .pillars-header { max-width: 1100px; margin: 0 auto 2.5rem; }
+  .pillars-header .eyebrow { color: rgba(255,255,255,0.65); }
+  .pillars-header h2 { color: var(--white); font-size: clamp(1.5rem, 3vw, 2rem); }
+
+  .pillars-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 6px; overflow: hidden;
+  }
+
+  .pillar {
+    background: rgba(255,255,255,0.08);
+    padding: 2rem 1.5rem;
     text-align: center;
-    margin-bottom: 3rem;
   }
 
-  /* ── FEATURED MENU ── */
+  .pillar-icon {
+    width: 40px; height: 40px;
+    margin: 0 auto 1rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .pillar-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 700px) {
+    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── MENU PREVIEW ── */
+  .menu-s {
+    background: var(--cream);
+    padding: 5rem 2rem;
+  }
+
+  .menu-header {
+    max-width: 1100px; margin: 0 auto 2.5rem;
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;
+  }
+
   .menu-grid {
     max-width: 1100px; margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 
   .menu-card {
     background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(167,195,195,0.35);
     overflow: hidden;
   }
 
   .menu-card-img {
-    width: 100%; height: 180px;
-    object-fit: cover;
-    background: var(--warm);
-    display: block;
+    width: 100%; height: 170px;
+    object-fit: cover; display: block;
+    background: var(--blue);
+    opacity: 0.9;
   }
 
-  .menu-card-img-placeholder {
-    width: 100%; height: 180px;
-    background: linear-gradient(135deg, #e8ddd0, #d4c4b0);
+  .menu-card-img-ph {
+    width: 100%; height: 170px;
+    background: rgba(167,195,195,0.2);
     display: flex; align-items: center; justify-content: center;
-    color: var(--muted); font-size: 2rem;
+    color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
   }
 
   .menu-card-body { padding: 1.25rem; }
-  .menu-card-body h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
-  .menu-card-body p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.75rem; }
-  .menu-card-price { font-weight: 500; color: var(--gold); }
+
+  .menu-card-meta {
+    display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;
+  }
+
+  .menu-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--black);
+  }
+
+  .menu-card-tag {
+    font-size: 0.65rem; font-family: 'Open Sans', sans-serif;
+    background: var(--cream); color: var(--muted);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    padding: 0.15rem 0.5rem; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; margin-left: 0.5rem;
+  }
+
+  .menu-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.75rem; }
+
+  .menu-card-price { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--black); }
+
+  .menu-cta { max-width: 1100px; margin: 2rem auto 0; }
+
+  @media (max-width: 700px) {
+    .menu-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── WINE ── */
+  .wine-s {
+    background: #152A2A;
+    padding: 5rem 2rem;
+  }
+
+  .wine-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+
+  .wine-s .eyebrow { color: #C9A96E; }
+  .wine-s h2 { color: var(--cream); font-size: clamp(1.6rem, 3.5vw, 2.25rem); margin-bottom: 1rem; }
+  .wine-body { font-size: 0.9rem; color: rgba(237,232,220,0.65); line-height: 1.8; margin-bottom: 1.5rem; }
+
+  .wine-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+  .wine-pill {
+    font-size: 0.72rem; font-family: 'Open Sans', sans-serif;
+    color: #C9A96E;
+    background: rgba(201,169,110,0.1);
+    border: 0.5px solid rgba(201,169,110,0.3);
+    padding: 0.3rem 0.75rem; border-radius: 20px;
+  }
+
+  .wine-img {
+    aspect-ratio: 4/3;
+    border-radius: 4px; overflow: hidden;
+  }
+
+  .wine-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
+
+  @media (max-width: 768px) {
+    .wine-inner { grid-template-columns: 1fr; }
+    .wine-img { order: -1; }
+  }
 
   /* ── REVIEWS ── */
-  .reviews-section { background: var(--dark); }
+  .reviews-s {
+    background: var(--white);
+    padding: 5rem 2rem;
+  }
+
+  .reviews-header {
+    max-width: 1100px; margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .google-score {
+    display: flex; align-items: center; gap: 0.75rem;
+    justify-content: center; margin-top: 0.75rem;
+  }
+
+  .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem; color: var(--black);
+  }
+
+  .score-stars { color: #C9A96E; font-size: 1rem; letter-spacing: 2px; }
+
+  .score-label { font-size: 0.78rem; color: var(--muted); }
 
   .reviews-grid {
     max-width: 1100px; margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 
   .review-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px;
+    background: var(--cream);
+    border: 0.5px solid rgba(167,195,195,0.35);
+    border-radius: 4px;
     padding: 1.75rem;
   }
 
-  .review-card p { color: #c8b9a8; font-size: 0.95rem; margin: 0.75rem 0; line-height: 1.7; }
-  .review-meta { font-size: 0.78rem; color: #7a6e65; }
+  .review-stars { color: #C9A96E; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.75rem; }
 
-  /* ── SHOP TEASER ── */
-  .shop-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem;
+  .review-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
   }
 
-  .shop-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex; flex-direction: column;
-  }
+  .review-meta { display: flex; align-items: center; gap: 0.6rem; }
 
-  .shop-card-img {
-    width: 100%; height: 200px;
-    object-fit: cover;
-    background: var(--warm);
-  }
-
-  .shop-card-img-placeholder {
-    width: 100%; height: 200px;
-    background: linear-gradient(135deg, #e8ddd0, #d4c4b0);
+  .review-av {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--blue);
     display: flex; align-items: center; justify-content: center;
-    color: var(--muted); font-size: 2.5rem;
+    font-size: 0.68rem; font-weight: 600; color: var(--white); flex-shrink: 0;
   }
 
-  .shop-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-  .shop-card-body h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-  .shop-card-body p { font-size: 0.875rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
-  .shop-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-  .shop-price { font-weight: 500; color: var(--gold); }
-
-  /* ── FIND US ── */
-  .findus-section { background: var(--warm); border-top: 1px solid var(--border); }
-
-  .findus-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3rem; align-items: start;
-  }
-
-  .findus-details h2 { margin-bottom: 1.5rem; }
-
-  .findus-row { margin-bottom: 1.25rem; }
-  .findus-row strong { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
-
-  .map-placeholder {
-    background: #d9d0c5;
-    border-radius: 8px;
-    height: 320px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--muted); font-size: 0.875rem;
-    overflow: hidden;
-  }
-
-  .map-placeholder iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; }
+  .review-name { font-size: 0.8rem; color: var(--black); font-weight: 500; }
+  .review-platform { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
 
   @media (max-width: 700px) {
-    .findus-inner { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── GALLERY ── */
+  .gallery-s {
+    background: rgba(167,195,195,0.1);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(167,195,195,0.25);
+  }
+
+  .gallery-header { max-width: 1100px; margin: 0 auto 2rem; }
+
+  .gallery-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 0.75rem;
+  }
+
+  .gc {
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(167,195,195,0.2);
+  }
+
+  .gc:first-child { grid-row: span 2; }
+
+  .gc img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .gc:hover img { transform: scale(1.03); }
+
+  @media (max-width: 700px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gc:first-child { grid-row: span 1; grid-column: span 2; }
+  }
+
+  /* ── ANFAHRT ── */
+  .info-s {
+    background: var(--white);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(167,195,195,0.25);
+  }
+
+  .info-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr;
+    gap: 4rem; align-items: start;
+    margin-top: 2.5rem;
+  }
+
+  .map-ph {
+    aspect-ratio: 4/3;
+    background: rgba(167,195,195,0.15);
+    border-radius: 4px; border: 0.5px solid rgba(167,195,195,0.35);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .map-ph iframe { width: 100%; height: 100%; border: 0; }
+  .map-ph-text { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .info-details { display: flex; flex-direction: column; gap: 0; }
+
+  .info-row {
+    padding: 1.1rem 0;
+    border-bottom: 0.5px solid rgba(167,195,195,0.35);
+  }
+
+  .info-row:first-child { padding-top: 0; }
+
+  .info-key {
+    font-size: 0.65rem; font-weight: 600; color: var(--blue-dk, #3D8280);
+    text-transform: uppercase; letter-spacing: 0.14em;
+    display: block; margin-bottom: 0.3rem;
+  }
+
+  .info-val { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--black); line-height: 1.4; }
+  .info-val-sm { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  .res-box {
+    margin-top: 1.5rem;
+    background: rgba(167,195,195,0.12);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .res-box h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .res-box p { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.55; }
+
+  @media (max-width: 768px) {
+    .info-inner { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -191,27 +484,96 @@ title: ""
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <p class="section-label">Welcome to</p>
-    <h1 class="hero-title">{{ site.name }}</h1>
-    <p class="hero-tagline">{{ site.tagline }}</p>
+    <p class="hero-eyebrow">{{ site.tagline }}</p>
+    <h1 class="hero-h1">{{ site.hero_headline }}</h1>
+    <p class="hero-sub">{{ site.hero_sub }}</p>
     <div class="hero-ctas">
-      <a href="/reservations/" class="btn btn-gold">{{ site.hero_cta_primary }}</a>
-      <a href="/menu/" class="btn btn-outline">{{ site.hero_cta_secondary }}</a>
+      <a href="/reservieren/" class="btn btn-blue">{{ site.hero_cta_primary }}</a>
+      <a href="/speisekarte/" class="btn btn-outline-white">{{ site.hero_cta_secondary }}</a>
+    </div>
+    <div class="hero-badges">
+      {% for badge in site.hero_badges %}
+        <span class="hero-badge">{{ badge }}</span>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<!-- ABOUT SNIPPET -->
-<section class="about-strip">
-  <p>{{ site.about_snippet }}</p>
-  <a href="/about/" class="btn btn-outline-dark">Our Story</a>
+<!-- ZITAT-STREIFEN -->
+<section class="quote-strip">
+  <p class="quote-text">„Der Seewind sang mit leichtem Sausen, wo ich auf Sylt als Kind einschlief.<br>Vom Strand hört' ich es ewig brausen, als ich an Mutters Hand noch lief."</p>
+  <p class="quote-source">Sylter Volkslied</p>
 </section>
 
-<!-- FEATURED MENU -->
-<section class="home-section" id="menu-preview">
-  <div class="home-section-header">
-    <p class="section-label">From the Kitchen</p>
-    <h2 class="section-title">A Taste of Our Menu</h2>
+<!-- ÜBER UNS -->
+<section class="about-s">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">Das Restaurant</span>
+    <h2 class="section-title">Eine Strandbude mit Charakter</h2>
+  </div>
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="/images/about.webp" alt="Strandmuschel Rantum" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="about-quote">
+        <p class="about-quote-text">„{{ site.about_quote }}"</p>
+        <p class="about-quote-author">— {{ site.about_quote_author }}</p>
+      </div>
+      <p class="about-body-text">{{ site.about_snippet }}</p>
+      <p class="about-body-text">Kein Dresscode. Kinder, Hunde und Surfboards herzlich willkommen.</p>
+      <div class="pills">
+        <span class="pill">Lokale Zutaten</span>
+        <span class="pill">Mediterrane Küche</span>
+        <span class="pill">Familiäre Atmosphäre</span>
+        <span class="pill">Autofrei erreichbar</span>
+        <span class="pill">Kiosk & Eis</span>
+      </div>
+      <div style="margin-top:0.5rem">
+        <a href="/ueber-uns/" class="btn btn-outline-dark">Mehr über uns</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR PILLARS -->
+<section class="pillars-s">
+  <div class="pillars-header">
+    <span class="eyebrow">Warum die Strandmuschel</span>
+    <h2>Vier Gründe, warum Gäste immer wiederkommen</h2>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-icon">🌊</div>
+      <h3 class="pillar-title">Direkter Meerblick</h3>
+      <p class="pillar-desc">Autofrei auf der Düne — bester Sonnenuntergang Rantums, direkt am Weststrand.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🍷</div>
+      <h3 class="pillar-title">100+ Weinpositionen</h3>
+      <p class="pillar-desc">Von deutschen Spitzenlagen bis zu iberischen Raritäten — mit dem Hauswein „Muschelschluck" als Einstieg.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🫒</div>
+      <h3 class="pillar-title">Tapas ab 16:30</h3>
+      <p class="pillar-desc">Hausgemachte Tapas zur freien Wahl — täglich frisch, mediterran, mit Liebe zubereitet.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">✦</div>
+      <h3 class="pillar-title">Locker & hochwertig</h3>
+      <p class="pillar-desc">Kein Dresscode — erstklassige Küche, persönlicher Service und echte Gastfreundschaft.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="menu-s" id="speisekarte">
+  <div class="menu-header">
+    <div>
+      <span class="eyebrow">Aus der Küche</span>
+      <h2 class="section-title">Was euch erwartet</h2>
+    </div>
+    <a href="/speisekarte/" class="btn btn-outline-dark">Zur Speisekarte</a>
   </div>
   <div class="menu-grid">
     {% for section in menu.sections %}
@@ -221,113 +583,137 @@ title: ""
           {% if item.image %}
             <img class="menu-card-img" src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
           {% else %}
-            <div class="menu-card-img-placeholder">🍽</div>
+            <div class="menu-card-img-ph">Foto</div>
           {% endif %}
           <div class="menu-card-body">
-            <h3>{{ item.name }}</h3>
-            <p>{{ item.description }}</p>
-            <div>
-              <span class="menu-card-price">{{ item.price }}</span>
-              {% for tag in item.tags %}
-                {% if tag != 'featured' %}<span class="tag">{{ tag }}</span>{% endif %}
-              {% endfor %}
+            <div class="menu-card-meta">
+              <h3 class="menu-card-name">{{ item.name }}</h3>
+              <span class="menu-card-tag">{{ section.name }}</span>
             </div>
+            <p class="menu-card-desc">{{ item.description }}</p>
+            <span class="menu-card-price">{{ item.price }}</span>
           </div>
         </article>
         {% endif %}
       {% endfor %}
     {% endfor %}
   </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="/menu/" class="btn btn-outline-dark">View Full Menu</a>
+</section>
+
+<!-- WEINKARTE -->
+<section class="wine-s">
+  <div class="wine-inner">
+    <div>
+      <span class="eyebrow">Weinkarte</span>
+      <h2>Über 100 handverlesene Positionen</h2>
+      <p class="wine-body">Vom Riesling bis zu seltenen Jahrgängen — eine der spannendsten Weinauswahlen auf Sylt. Mit dem Hauswein „Muschelschluck" als entspanntem Einstieg und großen Jahrgängen für besondere Anlässe.</p>
+      <div class="wine-pills">
+        <span class="wine-pill">Riesling GGs</span>
+        <span class="wine-pill">Grauburgunder</span>
+        <span class="wine-pill">Champagner</span>
+        <span class="wine-pill">Spanische Raritäten</span>
+        <span class="wine-pill">Toskanische Klassiker</span>
+        <span class="wine-pill">Muschelschluck</span>
+      </div>
+      <a href="/weinkarte/" class="btn btn-outline-white">Weinkarte ansehen</a>
+    </div>
+    <div class="wine-img">
+      <img src="/images/drinks.webp" alt="Drinks an der Strandmuschel" loading="lazy">
+    </div>
   </div>
 </section>
 
-<!-- REVIEWS SNIPPET -->
-<section class="home-section reviews-section">
-  <div class="home-section-header">
-    <p class="section-label" style="color:var(--gold-lt)">What Guests Say</p>
-    <h2 class="section-title light">Loved by Our Guests</h2>
+<!-- GÄSTESTIMMEN -->
+<section class="reviews-s">
+  <div class="reviews-header">
+    <span class="eyebrow">Gästestimmen</span>
+    <h2 class="section-title">Was andere sagen</h2>
+    <div class="google-score">
+      <span class="score-num">{{ reviews.google_score }}</span>
+      <div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score-label">{{ reviews.google_count }} Google-Bewertungen</div>
+      </div>
+    </div>
   </div>
   <div class="reviews-grid">
     {% for review in reviews.reviews %}
       {% if review.featured %}
       <article class="review-card">
-        <div class="stars">
-          {% for i in range(review.rating) %}★{% endfor %}
-        </div>
-        <p>"{{ review.text }}"</p>
-        <p class="review-meta">{{ review.author }} · {{ review.source }} · {{ review.date }}</p>
-      </article>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="/reviews/" class="btn btn-outline">Read All Reviews</a>
-  </div>
-</section>
-
-<!-- SHOP TEASER -->
-<section class="home-section">
-  <div class="home-section-header">
-    <p class="section-label">Take Us Home</p>
-    <h2 class="section-title">From Our Shop</h2>
-  </div>
-  <div class="shop-grid">
-    {% for product in shop.products %}
-      {% if product.featured %}
-      <article class="shop-card">
-        {% if product.image %}
-          <img class="shop-card-img" src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
-        {% else %}
-          <div class="shop-card-img-placeholder">🛒</div>
-        {% endif %}
-        <div class="shop-card-body">
-          <h3>{{ product.name }}</h3>
-          <p>{{ product.description }}</p>
-          <div class="shop-card-footer">
-            <span class="shop-price">{{ product.price }}</span>
-            <a href="{{ product.stripe_link }}" class="btn btn-gold" target="_blank" rel="noopener">Buy</a>
+        <div class="review-stars">{% for i in range(review.rating) %}★{% endfor %}</div>
+        <p class="review-text">„{{ review.text }}"</p>
+        <div class="review-meta">
+          <div class="review-av">{{ review.initials }}</div>
+          <div>
+            <div class="review-name">{{ review.author }}</div>
+            <span class="review-platform">{{ review.source }}</span>
           </div>
         </div>
       </article>
       {% endif %}
     {% endfor %}
   </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="/shop/" class="btn btn-outline-dark">Visit the Shop</a>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="/bewertungen/" class="btn btn-outline-dark">Alle Bewertungen</a>
   </div>
 </section>
 
-<!-- FIND US -->
-<section class="home-section findus-section">
-  <div class="findus-inner">
-    <div class="findus-details">
-      <p class="section-label">Come & See Us</p>
-      <h2 class="section-title">Find Us</h2>
-      <div class="findus-row">
-        <strong>Address</strong>
-        <p>{{ site.address }}</p>
-      </div>
-      <div class="findus-row">
-        <strong>Phone</strong>
-        <p><a href="tel:{{ site.phone }}" style="color:var(--dark)">{{ site.phone }}</a></p>
-      </div>
-      <div class="findus-row">
-        <strong>Opening Hours</strong>
-        {% for h in site.hours %}
-          <p>{{ h.day }}: {{ h.time }}</p>
-        {% endfor %}
-      </div>
-      <a href="/reservations/" class="btn btn-gold" style="margin-top:1rem">Reserve a Table</a>
+<!-- IMPRESSIONEN -->
+<section class="gallery-s">
+  <div class="gallery-header">
+    <span class="eyebrow">Impressionen</span>
+    <h2 class="section-title">Bilder sagen mehr als Worte</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gc"><img src="/images/terrasse.webp" alt="Terrasse" loading="lazy"></div>
+    <div class="gc"><img src="/images/bar.webp" alt="Bar" loading="lazy"></div>
+    <div class="gc"><img src="/images/strand.webp" alt="Strand" loading="lazy"></div>
+    <div class="gc"><img src="/images/duene.webp" alt="Düne" loading="lazy"></div>
+    <div class="gc"><img src="/images/fahne.webp" alt="Strandmuschel Fahne" loading="lazy"></div>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="/impressionen/" class="btn btn-outline-dark">Alle Impressionen</a>
+  </div>
+</section>
+
+<!-- ANFAHRT & KONTAKT -->
+<section class="info-s">
+  <div style="max-width:1100px;margin:0 auto">
+    <span class="eyebrow">Anfahrt & Zeiten</span>
+    <h2 class="section-title">Ihr findet uns hier</h2>
+  </div>
+  <div class="info-inner">
+    <div class="map-ph">
+      {% if site.google_maps_embed %}
+        {{ site.google_maps_embed | safe }}
+      {% else %}
+        <span class="map-ph-text">Google Maps · Strandweg 30, Rantum</span>
+      {% endif %}
     </div>
-    <div>
-      <div class="map-placeholder">
-        {% if site.google_maps_embed %}
-          {{ site.google_maps_embed | safe }}
-        {% else %}
-          <span>Map will appear here once configured in the CMS</span>
-        {% endif %}
+    <div class="info-details">
+      <div class="info-row">
+        <span class="info-key">Adresse</span>
+        <span class="info-val">{{ site.address }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Öffnungszeiten</span>
+        {% for h in site.hours %}
+          <span class="info-val">{{ h.day }} · {{ h.time }}</span>
+        {% endfor %}
+        <span class="info-val-sm">{{ site.hours_note }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Telefon</span>
+        <span class="info-val"><a href="tel:04651271750" style="color:inherit;text-decoration:none">{{ site.phone }}</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Anfahrt</span>
+        <span class="info-val-sm">Zu Fuß oder per Fahrrad empfohlen. Parkplatz Strandweg, ca. 500 m entfernt.</span>
+      </div>
+      <div class="res-box">
+        <h3>Tisch reservieren</h3>
+        <p>Kurzfristig? 20 Minuten vorher anrufen — oder direkt online buchen.</p>
+        <a href="/reservieren/" class="btn btn-blue">Jetzt reservieren</a>
       </div>
     </div>
   </div>

@@ -1,67 +1,77 @@
 sections:
-  - name: "Antipasti"
+  - name: "Tapas"
     items:
-      - name: "Bruschetta al Pomodoro"
-        description: "Toasted sourdough with fresh tomato, garlic, basil, and extra virgin olive oil"
-        price: "£7.50"
-        image: "/images/menu/bruschetta.jpg"
-        tags: ["vegan", "featured"]
-      - name: "Burrata con Prosciutto"
-        description: "Creamy burrata, San Daniele prosciutto, rocket, and aged balsamic"
-        price: "£12.00"
+      - name: "Gambas al Ajillo"
+        description: "Garnelen in Knoblauch-Öl, pikant, mit geröstetem Baguette"
+        price: "19,50 €"
+        image: "/images/tapas.webp"
+        tags: ["featured"]
+      - name: "Oliven & Antipasti"
+        description: "Hausgemachte Auswahl täglich frisch — Oliven, Sardellen, Kapern, Manchego"
+        price: "12,50 €"
+        image: ""
+        tags: []
+      - name: "Patatas Bravas"
+        description: "Knusprige Kartoffeln, Aioli, rauchige Tomaten-Salsa"
+        price: "9,50 €"
+        image: ""
+        tags: ["vegan"]
+      - name: "Boquerones"
+        description: "Marinierte Sardellen in Essig und Olivenöl, mit Petersilie"
+        price: "11,00 €"
+        image: ""
+        tags: []
+      - name: "Albóndigas"
+        description: "Hausgemachte Lammhackbällchen in Tomatensauce mit frischen Kräutern"
+        price: "14,50 €"
         image: ""
         tags: ["featured"]
-      - name: "Calamari Fritti"
-        description: "Lightly fried squid rings with lemon aioli and chilli flakes"
-        price: "£10.50"
+
+  - name: "Fisch & Meeresfrüchte"
+    items:
+      - name: "Nordsee Scholle"
+        description: "Finkenwerder Art — gebraten mit Speck, Bratkartoffeln und Gurkensalat"
+        price: "33,50 €"
+        image: ""
+        tags: ["featured"]
+      - name: "Seezunge"
+        description: "Meunière — mit Kapern, Zitronen-Butter und Bouquet garni"
+        price: "38,00 €"
+        image: ""
+        tags: []
+      - name: "Garnelen-Pfanne"
+        description: "Große Garnelen in Weißwein, Knoblauch und Butter — mit Baguette"
+        price: "26,50 €"
         image: ""
         tags: []
 
-  - name: "Primi Piatti"
+  - name: "Vom Grill"
     items:
-      - name: "Tagliatelle al Ragù"
-        description: "Fresh egg tagliatelle with slow-cooked Bolognese ragù and Parmigiano"
-        price: "£16.00"
-        image: "/images/menu/tagliatelle.jpg"
-        tags: ["featured"]
-      - name: "Risotto ai Funghi Porcini"
-        description: "Carnaroli rice with wild porcini mushrooms, truffle oil, and aged Pecorino"
-        price: "£17.50"
+      - name: "Entrecôte"
+        description: "300g Dry-Aged Roastbeef, Kräuterbutter, Pommes und Blattsalat"
+        price: "42,00 €"
         image: ""
-        tags: ["vegetarian"]
-      - name: "Spaghetti alle Vongole"
-        description: "Spaghetti with fresh clams, white wine, garlic, parsley, and chilli"
-        price: "£18.00"
+        tags: []
+      - name: "Hähnchen vom Spieß"
+        description: "Freilandhuhn, mariniert in Kräutern und Zitronen-Öl, mit Ofenkartoffeln"
+        price: "24,50 €"
         image: ""
         tags: []
 
-  - name: "Secondi Piatti"
+  - name: "Dessert"
     items:
-      - name: "Branzino al Forno"
-        description: "Whole roasted sea bass with capers, olives, cherry tomatoes, and fresh herbs"
-        price: "£26.00"
+      - name: "Lava Cake"
+        description: "Warmer Schokoladenkuchen mit Vanilleeis und Roter Grütze"
+        price: "13,50 €"
+        image: ""
+        tags: ["featured"]
+      - name: "Hausgebackener Kuchen"
+        description: "Täglich wechselnd — nach Saisonangebot und Stimmung"
+        price: "6,50 €"
         image: ""
         tags: []
-      - name: "Costata di Manzo"
-        description: "28-day dry-aged ribeye, rosemary potatoes, and salsa verde — 300g"
-        price: "£34.00"
-        image: "/images/menu/ribeye.jpg"
-        tags: ["featured"]
-      - name: "Melanzane alla Parmigiana"
-        description: "Layered aubergine bake with tomato, basil, mozzarella, and Parmigiano"
-        price: "£15.00"
+      - name: "Käsebrett"
+        description: "Drei Käsesorten mit Feigensenf, Walnüssen und Brot"
+        price: "16,00 €"
         image: ""
         tags: ["vegetarian"]
-
-  - name: "Dolci"
-    items:
-      - name: "Tiramisù della Casa"
-        description: "Classic tiramisù made to our family recipe with Marsala and Savoiardi"
-        price: "£8.00"
-        image: ""
-        tags: ["vegetarian"]
-      - name: "Panna Cotta"
-        description: "Vanilla panna cotta with seasonal berry coulis"
-        price: "£7.50"
-        image: ""
-        tags: ["vegetarian", "gluten-free"]

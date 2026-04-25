@@ -1,53 +1,93 @@
 ---
 layout: base.njk
-title: "Our Story"
+title: "Über uns"
+permalink: /ueber-uns/
 ---
 
 <style>
   .about-hero-img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
+    width: 100%; height: 460px;
+    object-fit: cover; object-position: center 40%;
     display: block;
-    background: var(--dark);
   }
 
-  .about-hero-img-placeholder {
-    width: 100%; height: 420px;
-    background: linear-gradient(135deg, #2a221a, #1c1713);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.2); font-size: 0.875rem;
-    letter-spacing: 0.1em;
-  }
-
-  .about-page { padding: 4.5rem 2.5rem 5rem; }
+  .about-page { padding: 4.5rem 2rem 5rem; background: var(--white); }
 
   .about-inner { max-width: 720px; margin: 0 auto; }
 
-  .about-inner .section-label { margin-bottom: 0.75rem; }
-  .about-inner .section-title { margin-bottom: 2rem; }
+  .about-inner h1 { margin-bottom: 2rem; }
 
-  .about-body {
-    font-size: 1.05rem;
-    color: var(--mid);
-    line-height: 1.85;
+  .about-body { font-size: 1rem; color: var(--muted); line-height: 1.9; }
+  .about-body p { margin-bottom: 1.5rem; }
+
+  .about-quote-block {
+    background: var(--cream);
+    border-left: 3px solid var(--blue);
+    padding: 1.75rem 2rem;
+    margin: 2.5rem 0;
+    border-radius: 0 4px 4px 0;
   }
 
-  .about-body p { margin-bottom: 1.5rem; }
+  .about-quote-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-style: italic;
+    color: var(--black); line-height: 1.6; margin-bottom: 0.5rem;
+  }
+
+  .about-quote-block cite { font-size: 0.8rem; color: var(--muted); font-style: normal; }
+
+  .about-facts {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: rgba(167,195,195,0.35);
+    border: 0.5px solid rgba(167,195,195,0.35);
+    border-radius: 4px; overflow: hidden;
+    margin: 3rem 0;
+  }
+
+  .fact {
+    background: var(--white);
+    padding: 1.5rem;
+  }
+
+  .fact-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .fact-value { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--black); }
 </style>
 
-{% if site.about_hero_image %}
-  <img class="about-hero-img" src="{{ site.about_hero_image }}" alt="{{ site.name }}">
-{% else %}
-  <div class="about-hero-img-placeholder">Add a hero image in the CMS</div>
-{% endif %}
+<img class="about-hero-img" src="{{ site.about_hero_image }}" alt="Strandmuschel Rantum · Sylt">
 
 <div class="about-page">
   <div class="about-inner">
-    <p class="section-label">Since 1987</p>
-    <h1 class="section-title">Our Story</h1>
+    <span class="eyebrow">Das Restaurant</span>
+    <h1 class="section-title">Eine Strandbude mit Charakter</h1>
+
+    <div class="about-quote-block">
+      <p>„{{ site.about_quote }}"</p>
+      <cite>— {{ site.about_quote_author }}</cite>
+    </div>
+
     <div class="about-body">
       {{ site.about_body | paragraphs | safe }}
     </div>
+
+    <div class="about-facts">
+      <div class="fact">
+        <div class="fact-label">Standort</div>
+        <div class="fact-value">{{ site.address }}</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Öffnungszeiten</div>
+        <div class="fact-value">Di – So · ab 12:00 Uhr</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Telefon</div>
+        <div class="fact-value">{{ site.phone }}</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">E-Mail</div>
+        <div class="fact-value">{{ site.email }}</div>
+      </div>
+    </div>
+
+    <a href="/reservieren/" class="btn btn-blue">Tisch reservieren</a>
   </div>
 </div>

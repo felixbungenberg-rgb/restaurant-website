@@ -1,60 +1,45 @@
 ---
 layout: base.njk
-title: "Reservations"
+title: "Reservieren"
+permalink: /reservieren/
 ---
 
 <style>
-  .reservations-page { padding: 4rem 2.5rem 5rem; }
-
-  .reservations-inner { max-width: 800px; margin: 0 auto; }
-
-  .res-intro {
-    font-size: 1.05rem;
-    color: var(--mid);
-    margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
+  .res-page { padding: 4rem 2rem 5rem; }
+  .res-inner { max-width: 720px; margin: 0 auto; }
+  .res-intro { font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.8; }
 
   .res-embed-box {
     background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2rem;
-    min-height: 300px;
+    border: 0.5px solid rgba(167,195,195,0.45);
+    border-radius: 4px; padding: 2.5rem;
+    min-height: 280px;
     display: flex; align-items: center; justify-content: center;
+    margin-bottom: 2rem;
   }
 
-  .embed-placeholder {
-    text-align: center; color: var(--muted);
-  }
-
-  .embed-placeholder p { margin-bottom: 0.5rem; }
-  .embed-placeholder code {
-    background: var(--warm); padding: 0.2rem 0.5rem;
-    border-radius: 3px; font-size: 0.8rem;
-  }
+  .embed-placeholder { text-align: center; color: var(--muted); }
+  .embed-placeholder p { margin-bottom: 0.5rem; font-size: 0.875rem; }
+  .embed-placeholder code { background: var(--cream); padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.78rem; }
 
   .contact-fallback {
-    margin-top: 2.5rem;
-    background: var(--warm);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.75rem;
+    background: rgba(167,195,195,0.1);
+    border: 0.5px solid rgba(167,195,195,0.4);
+    border-radius: 4px; padding: 1.75rem;
   }
 
-  .contact-fallback h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; margin-bottom: 0.75rem;
-  }
+  .contact-fallback h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.65rem; }
+  .contact-fallback p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+  .contact-fallback a { color: var(--black); }
 </style>
 
 <div class="page-hero">
-  <p class="section-label">{{ site.name }}</p>
-  <h1 class="section-title light">Reserve a Table</h1>
+  <span class="eyebrow">Strandmuschel Rantum</span>
+  <h1 class="section-title">Tisch reservieren</h1>
 </div>
 
-<div class="reservations-page">
-  <div class="reservations-inner">
+<div class="res-page">
+  <div class="res-inner">
     <p class="res-intro">{{ site.reservation_intro }}</p>
 
     <div class="res-embed-box">
@@ -62,15 +47,19 @@ title: "Reservations"
         {{ site.reservation_system_embed | safe }}
       {% else %}
         <div class="embed-placeholder">
-          <p>Booking widget will appear here.</p>
-          <p>Paste your OpenTable / Resy / Bookatable embed code into the CMS under <code>Site Settings → Reservation Embed</code>.</p>
+          <p>Buchungs-Widget erscheint hier.</p>
+          <p>Embed-Code im CMS unter <code>Einstellungen → Reservierungs-Embed</code> eintragen.</p>
         </div>
       {% endif %}
     </div>
 
     <div class="contact-fallback">
-      <h3>Prefer to call?</h3>
-      <p>For same-day bookings or groups of 8 or more, please call us on <a href="tel:{{ site.phone }}" style="color:var(--gold)">{{ site.phone }}</a> or email <a href="mailto:{{ site.email }}" style="color:var(--gold)">{{ site.email }}</a>.</p>
+      <h3>Lieber telefonisch?</h3>
+      <p>
+        Für spontane Besuche, Gruppen ab 10 Personen oder Fragen zu besonderen Anlässen
+        erreicht ihr uns unter <a href="tel:04651271750"><strong>{{ site.phone }}</strong></a>
+        oder per E-Mail an <a href="mailto:{{ site.email }}"><strong>{{ site.email }}</strong></a>.
+      </p>
     </div>
   </div>
 </div>
