@@ -38,26 +38,29 @@
       z-index: 100;
       display: flex;
       align-items: stretch;
-      height: 100px;
+      height: 50px;
       background: var(--white);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-brand {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100px;
-      height: 100px;
-      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
       background: var(--white);
-      border-bottom-right-radius: 32px;
+      border-bottom-right-radius: 48px;
       text-decoration: none;
     }
 
     .nav-logo-img {
-      height: 80px;
-      width: 80px;
+      height: 160px;
+      width: 160px;
       object-fit: contain;
       display: block;
     }
@@ -87,8 +90,8 @@
     }
 
     .nav-links a:hover, .nav-links a.active {
-      color: var(--white);
-      background: var(--blue);
+      color: var(--black);
+      background: var(--cream);
     }
 
     .nav-links .nav-reservieren a {
@@ -117,13 +120,11 @@
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--black); }
 
     @media (max-width: 768px) {
-      nav { align-items: center; justify-content: space-between; padding: 0 0 0 1.5rem; }
-      .nav-brand { width: 80px; height: 80px; border-bottom-right-radius: 24px; }
-      .nav-logo-img { height: 64px; width: 64px; }
+      nav { align-items: center; justify-content: space-between; padding: 0 1.5rem; }
       .nav-toggle { display: flex; margin-right: 0; }
       .nav-links {
         display: none; flex-direction: column; align-items: stretch;
-        position: absolute; top: 100px; left: 0; right: 0;
+        position: absolute; top: 50px; left: 0; right: 0;
         background: var(--white);
         border-bottom: 1px solid var(--border);
       }
@@ -139,7 +140,7 @@
     }
 
     /* ── PAGE SHELL ── */
-    main { padding-top: 100px; }
+    main { padding-top: 50px; }
 
     /* ── FOOTER ── */
     footer {
@@ -256,6 +257,9 @@
   </style>
 </head>
 <body>
+  <a href="/" class="nav-brand">
+    <img class="nav-logo-img" src="{{ site.logo }}" alt="{{ site.name }}">
+  </a>
   <nav>
     <button class="nav-toggle" aria-label="Menü öffnen" onclick="document.getElementById('nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -268,9 +272,6 @@
       <li><a href="/events/">Events</a></li>
       <li class="nav-reservieren"><a href="/reservieren/">Reservieren</a></li>
     </ul>
-    <a href="/" class="nav-brand">
-      <img class="nav-logo-img" src="{{ site.logo }}" alt="{{ site.name }}">
-    </a>
   </nav>
 
   <main>
