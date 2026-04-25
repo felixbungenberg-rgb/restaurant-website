@@ -54,30 +54,9 @@
     }
 
     .nav-logo-img {
-      height: 32px;
+      height: 44px;
       width: auto;
-    }
-
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .nav-brand-name {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--black);
-    }
-
-    .nav-brand-sub {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: uppercase;
+      display: block;
     }
 
     .nav-links {
@@ -265,10 +244,6 @@
   <nav>
     <a href="/" class="nav-brand">
       <img class="nav-logo-img" src="{{ site.logo }}" alt="{{ site.name }}">
-      <div class="nav-brand-text">
-        <span class="nav-brand-name">Strandmuschel</span>
-        <span class="nav-brand-sub">Rantum · Sylt</span>
-      </div>
     </a>
     <button class="nav-toggle" aria-label="Menü öffnen" onclick="this.nextElementSibling.classList.toggle('open')">
       <span></span><span></span><span></span>
